@@ -2,7 +2,7 @@ import React from 'react';
 import { useCharacters } from '../../hooks/characters';
 
 const List = () => {
-  const { charactersArray } = useCharacters();
+  const { charactersArray, handlePageChange, page } = useCharacters();
 
   const makeList = () => {
     const characterItems = charactersArray.map((character, i) => (  
@@ -21,8 +21,9 @@ const List = () => {
 
   return (
     <>
-      <button>prevPage</button>
-      <button>nextPage</button>
+      <button value="prev" onClick={({ target }) => handlePageChange(target.value)}>prevPage</button>
+      <p>{page}</p>
+      <button value="next" onClick={({ target }) => handlePageChange(target.value)}>nextPage</button>
       {makeList()}
     </>
   );
