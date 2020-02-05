@@ -4,7 +4,7 @@ import { fetchCharacters } from '../services/rickAndMortyApi.js';
 export const useCharacters = () => {
   const [charactersArray, setCharactersArray] = useState([]);
   const [page, setPage] = useState(1);
-
+  const [selectedCharacter, setSelectedCharacter] = useState({});
 
   const handlePageChange = (choice) => {
     if(choice === 'prev' && page > 1) {
@@ -13,6 +13,13 @@ export const useCharacters = () => {
       setPage(page + 1);
     }
   }; 
+
+  const handleCharacterSelection = (characterId) => {
+    const foundCharacter = charactersArray.find(character => character.id === characterId);
+    console.log(foundCharacter);
+    setSelectedCharacter(foundCharacter);
+  };
+
 
   const getCharacters = () => {
     fetchCharacters(page)
@@ -24,5 +31,5 @@ export const useCharacters = () => {
     getCharacters();
   }, [page]);
 
-  return { charactersArray, page, handlePageChange };
+  return { charactersArray, page, handlePageChange, handleCharacterSelection, selectedCharacter };
 }; 

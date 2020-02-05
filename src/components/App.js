@@ -3,15 +3,17 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Header/Header';
 import List from './List/List';
+import Detail from './Detail/Detail';
 
 export default function App() {
   return (
     <Router>
       <Header />
 
-      <List />
-    
+      <Detail />
 
+      <List />
+  
     </Router>
   );
 }
