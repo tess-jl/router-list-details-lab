@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import getCharacters from '../services/rickAndMortyApi.js';
+import { useState, useEffect } from 'react';
+import { fetchCharacters } from '../services/rickAndMortyApi.js';
 
-const useCharacters = () => {
-  [charactersArray, setCharactersArray] = useState([]);
+export const useCharacters = () => {
+  const [charactersArray, setCharactersArray] = useState([]);
+
+  const getCharacters = () => {
+    fetchCharacters(1)
+      .then(array => setCharactersArray(array));
+  };
 
   useEffect(() => {
-    getCharacters(1)
-      .then(array => setCharactersArray(array))
-
+    getCharacters();
   }, []);
 
+  return { charactersArray };
 }; 
-
-export { charactersArray };
-
