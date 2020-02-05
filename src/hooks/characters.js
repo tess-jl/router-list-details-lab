@@ -6,7 +6,7 @@ export const useCharacters = () => {
 
   const getCharacters = () => {
     fetchCharacters(1)
-      .then(array => setCharactersArray(array));
+      .then(resultObject => setCharactersArray(resultObject.results));
   };
 
   useEffect(() => {
