@@ -7,9 +7,11 @@ export const useCharacters = () => {
 
 
   const handlePageChange = (choice) => {
-    if(choice === 'prev' && page !== 1) {
+    if(choice === 'prev' && page > 1) {
       setPage(page - 1);
-    } else setPage(page + 1);
+    } else if(choice === 'next') {
+      setPage(page + 1);
+    }
   }; 
 
   const getCharacters = () => {
