@@ -1,4 +1,5 @@
 import React from 'react'; 
+import styles from './Header.css';
 import { Link, useLocation } from 'react-router-dom';
 
 
@@ -7,7 +8,7 @@ const Header = () => {
 
 
   return (
-    <header>
+    <header className={styles.Header}>
       <h1>Rick and Morty... again?! yes, again</h1>
 
       {

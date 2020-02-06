@@ -25,10 +25,12 @@ const List = () => {
 
   return (
     <>
-      <button value="prev" onClick={({ target }) => handlePageChange(target.value)}>prevPage</button>
-      <p>{page}</p>
-      <button value="next" onClick={({ target }) => handlePageChange(target.value)}>nextPage</button>
-      {makeList()}
+      <div className={styles.List}>
+        <button value="prev" onClick={({ target }) => handlePageChange(target.value)}>prevPage</button>
+        <p>{page}</p>
+        <button value="next" onClick={({ target }) => handlePageChange(target.value)}>nextPage</button>
+        {makeList()}
+      </div>
     </>
   );
 };
