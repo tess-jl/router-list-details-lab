@@ -1,0 +1,14 @@
+.List {
+  
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  
+  li {
+    margin: 0.2rem; 
+    text-align: center;
+    color: darkslategray
+  }
+}

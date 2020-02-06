@@ -8,6 +8,7 @@ const Detail = ({ match }) => {
   return (
     <>
       <h3>{selectedCharacter.name}</h3>
+      <img src={selectedCharacter.image} />
       <p>{selectedCharacter.type}</p>
       <p>{selectedCharacter.status}</p>
     </>

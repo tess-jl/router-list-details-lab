@@ -7,7 +7,7 @@ const Header = () => (
     <h1>Rick and Morty... again?! yes, again</h1>
 
     <nav>
-      <Link to='/'>back to list</Link>
+      <Link to='/'>Home</Link>
     </nav>
   </header>
 );

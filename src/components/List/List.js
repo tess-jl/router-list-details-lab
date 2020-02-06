@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './List.css';
 import { useCharacters } from '../../hooks/characters';
 import { Link } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ const List = () => {
       </li>
     ));
     return (
-      <ul>
+      <ul className={styles.List}>
         {characterItems}
       </ul>
     );
