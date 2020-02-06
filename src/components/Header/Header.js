@@ -1,15 +1,20 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
-const Header = () => (
-  <header>
-    <h1>Rick and Morty... again?! yes, again</h1>
+const Header = () => {
+  const location = useLocation();
 
-    <nav>
-      <Link to='/'>Home</Link>
-    </nav>
-  </header>
-);
+
+  return (
+    <header>
+      <h1>Rick and Morty... again?! yes, again</h1>
+
+      {
+        location.pathname.includes('/character/') ? <nav><Link to='/'>Home</Link></nav> : null
+      }
+    </header>
+  );
+};
 
 export default Header; 
