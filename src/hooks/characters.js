@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchCharacters } from '../services/rickAndMortyApi.js';
+import { fetchCharacters, fetchCharacter } from '../services/rickAndMortyApi.js';
 
 export const useCharacters = () => {
   const [charactersArray, setCharactersArray] = useState([]);
@@ -27,14 +27,17 @@ export const useCharacters = () => {
   return { charactersArray, page, handlePageChange };
 }; 
 
-export const useCharacter = (characterId) => {
+export const useCharacter = characterId => {
   const [selectedCharacter, setSelectedCharacter] = useState({});
 
-  const handleCharacterSelection = (characterId) => {
-    const foundCharacter = charactersArray.find(character => character.id === characterId);
-    setSelectedCharacter(foundCharacter);
-  };
+  const getCharacter = () => {
+    fetchCharacter(characterId)
+      .then(setSelectedCharacter);
+  }; 
 
+  useEffect(() => {
+    getCharacter(characterId);
+  }, [characterId]);
   
-  return { handleCharacterSelection, selectedCharacter };
+  return { selectedCharacter };
 };

@@ -1,8 +1,9 @@
 import React from 'react';
-import { useCharacters } from '../../hooks/characters';
+import PropTypes from 'prop-types';
+import { useCharacter } from '../../hooks/characters';
 
-const Detail = () => {
-  const { selectedCharacter } = useCharacters();
+const Detail = ({ match }) => {
+  const { selectedCharacter } = useCharacter(match.params.id);
 
   return (
     <>
@@ -13,5 +14,12 @@ const Detail = () => {
   );
 }; 
 
+Detail.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
+};
 
 export default Detail;

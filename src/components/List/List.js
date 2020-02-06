@@ -3,12 +3,12 @@ import { useCharacters } from '../../hooks/characters';
 import { Link } from 'react-router-dom';
 
 const List = () => {
-  const { charactersArray, handlePageChange, page, handleCharacterSelection } = useCharacters();
+  const { charactersArray, handlePageChange, page } = useCharacters();
 
   const makeList = () => {
     const characterItems = charactersArray.map(({ id, image, name }) => (  
-      <li key={id} onClick={() => handleCharacterSelection(id)}>
-        <Link>
+      <li key={id}>
+        <Link to={`/character/${id}`}>
           <img src={image} />
           <h3>{name}</h3>
         </Link>

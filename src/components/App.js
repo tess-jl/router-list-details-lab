@@ -1,7 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { 
-  BrowserRouter as Router
+  BrowserRouter as Router, 
+  Route
 } from 'react-router-dom';
 import Header from './Header/Header';
 import List from './List/List';
@@ -12,9 +13,9 @@ export default function App() {
     <Router>
       <Header />
 
-      <Detail />
+      <Route path="/character/:id" component={Detail} />
 
-      <List />
+      <Route exact path="/" component={List} />
   
     </Router>
   );
