@@ -1,0 +1,23 @@
+.List {
+  
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  
+  li {
+    margin: 0.2rem; 
+    text-align: center;
+    color: darkslategray
+  }
+
+  p {
+    background-color: lightblue;
+    margin: 0.2rem; 
+  }
+
+  button {
+    border-radius: 5px;
+  }
+}
